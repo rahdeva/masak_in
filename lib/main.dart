@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Restaurant App',
+      title: 'Masak.in',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

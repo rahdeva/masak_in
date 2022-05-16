@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../screens/detail.dart';
+import '../models/foods.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/home';
@@ -57,74 +59,28 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Center(child: Text("hai")),
       // body: LayoutBuilder(
       //   builder: (BuildContext context, BoxConstraints constraints) {
       //     if (constraints.maxWidth <= 850) {
-      //       return TourismPlaceList();
+      //       return FoodGrid(gridCount: 2);
       //     } else if (constraints.maxWidth <= 1250) {
-      //       return TourismPlaceGrid(gridCount: 4);
+      //       return FoodGrid(gridCount: 4);
       //     } else {
-      //       return TourismPlaceGrid(gridCount: 6);
+      //       return FoodGrid(gridCount: 6);
       //     }
       //   }
       // ),
+      body: Center(
+        child: Image.asset("assets/images/foods/bakso.png", width: 150, height: 150,),
+      )
     );
   }
 }
 
-// class TourismPlaceList extends StatelessWidget{
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       itemBuilder: (context, index) {
-//         final TourismPlace place = tourismPlaceList[index];
-//         return InkWell(
-//           onTap: () {
-//             Navigator.push(context, MaterialPageRoute(builder: (context) {
-//               return DetailScreen(place: place);
-//             }));
-//           },
-//           child: Card(
-//             child: Row(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: <Widget>[
-//                 Expanded(
-//                   flex: 1,
-//                   child: Hero(tag: "photo", child: Image.asset(place.imageAsset)),
-//                 ),
-//                 Expanded(
-//                   flex: 2,
-//                   child: Padding(
-//                     padding: const EdgeInsets.all(8.0),
-//                     child: Column(
-//                       crossAxisAlignment: CrossAxisAlignment.start,
-//                       children: <Widget>[
-//                         Text(                            place.name,
-//                           style: TextStyle(fontSize: 16.0),
-//                         ),
-//                         SizedBox(
-//                           height: 10,
-//                         ),
-//                         Text(place.location),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//           ),
-//           ),
-//         );
-//       },
-//       itemCount: tourismPlaceList.length,
-//     );
-//   }
-// }
-
-// class TourismPlaceGrid extends StatelessWidget {
+// class FoodGrid extends StatelessWidget {
 //   final int gridCount;
-  
-//   TourismPlaceGrid({required this.gridCount});
+
+//   const FoodGrid({Key? key, required this.gridCount}) : super(key: key);
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -136,11 +92,11 @@ class HomeScreen extends StatelessWidget {
 //           crossAxisCount: gridCount,
 //           crossAxisSpacing: 16,
 //           mainAxisSpacing: 16,
-//           children: tourismPlaceList.map((place) {
+//           children: foodLists.map((foods) {
 //             return InkWell(
 //               onTap: () {
 //                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                   return DetailScreen(place: place);
+//                   return DetailScreen(foods: foods);
 //                 }));
 //               },
 //               child: Card(
@@ -149,7 +105,7 @@ class HomeScreen extends StatelessWidget {
 //                   children: [
 //                     Expanded(
 //                       child: Image.asset(
-//                         place.imageAsset,
+//                         foods.imageAsset,
 //                         fit: BoxFit.cover,
 //                       ),
 //                     ),
@@ -157,7 +113,7 @@ class HomeScreen extends StatelessWidget {
 //                     Padding(
 //                       padding: const EdgeInsets.only(left: 8.0),
 //                       child: Text(
-//                         place.name,
+//                         foods.name,
 //                         style: TextStyle(
 //                           fontSize: 16.0,
 //                           fontWeight: FontWeight.bold,
@@ -167,7 +123,7 @@ class HomeScreen extends StatelessWidget {
 //                     Padding(
 //                       padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
 //                       child: Text(
-//                         place.location,
+//                         foods.location,
 //                       ),
 //                     ),
 //                   ],
