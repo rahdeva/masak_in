@@ -35,14 +35,14 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
               child: ListTile(
                 leading: Icon(Icons.home, color: logoColor),
-                title: Text('Home', style: TextStyle(fontSize: 20.0, color: logoColor, fontWeight: FontWeight.bold)),
+                title: Text('Home', style: TextStyle(fontSize: 20.0, color: logoColor, fontWeight: FontWeight.w600)),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
                     return const FavouritesScreen();
                   }));
                 },
@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
                     return const AboutScreen();
                   }));
                 },
@@ -97,62 +97,120 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class FoodGrid extends StatelessWidget {
+class FoodGrid extends StatefulWidget {
   final int gridCount;
 
   const FoodGrid({Key? key, required this.gridCount}) : super(key: key);
 
   @override
+  State<FoodGrid> createState() => _FoodGridState();
+}
+
+class _FoodGridState extends State<FoodGrid> {
+  List<Foods> _items = [];
+  List<Foods> _foundItems = [];
+
+  void getAllData(){
+    setState(() {
+      _items = foodLists;
+      _foundItems = _items;
+    });
+  }
+
+  void _runFilter(String enteredKeyword) {
+    List<Foods> results = [];
+    if (enteredKeyword.isEmpty) {
+      results = _items;
+    } else {
+      results = _items.where(
+        (foods) => foods.name.toLowerCase().contains(enteredKeyword.toLowerCase())
+      ).toList();
+    }
+    
+    setState(() {
+      _foundItems = results;
+    });
+  }
+
+  @override
+  void initState() {
+    if(_items.isEmpty) getAllData();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      padding: const EdgeInsets.all(24.0),
-      crossAxisCount: gridCount,
-      crossAxisSpacing: 24,
-      mainAxisSpacing: 75,
-      children: foodLists.map((foods) {
-        final random = Random();
-        Color colors = colorList[random.nextInt(colorList.length)];
-        return InkWell(
-          borderRadius: const BorderRadius.all(Radius.circular(25.0)),
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return DetailScreen(foods: foods);
-            }));
-          },
-          child: SizedBox(
-            height: 500,
-            child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                color: colors,
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  clipBehavior: Clip.none,
-                  children: [
-                    Positioned(
-                      top: 70,
-                      child: Image.asset(
-                        foods.imageAsset,
-                        height: 200,
-                        width: 200,
-                      ),
-                    ),
-                    Positioned(
-                      top: 40,
-                      child: Center(
-                        child: Text(
-                          foods.name,
-                          style: projectTextTheme.headline5
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 16.0),
+          child: TextField(
+            onChanged: (value) => _runFilter(value),
+            decoration: const InputDecoration(
+              labelText: "Search",
+              hintText: "Search",
+              prefixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(25.0))
+              )
             ),
           ),
-        );
-      }).toList(),
+        ),
+        _foundItems.isNotEmpty
+          ? Expanded(
+            child: GridView.count(
+              padding: const EdgeInsets.all(24.0),
+              crossAxisCount: widget.gridCount,
+              crossAxisSpacing: 24,
+              mainAxisSpacing: 75,
+              children: _foundItems.map((foods) {
+                final random = Random();
+                Color colors = colorList[random.nextInt(colorList.length)];
+                return InkWell(
+                  borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return DetailScreen(foods: foods);
+                    }));
+                  },
+                  child: SizedBox(
+                    height: 500,
+                    child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        color: colors,
+                        child: Stack(
+                          alignment: AlignmentDirectional.center,
+                          clipBehavior: Clip.none,
+                          children: [
+                            Positioned(
+                              top: 65,
+                              child: Image.asset(
+                                foods.imageAsset,
+                                height: 200,
+                                width: 200,
+                              ),
+                            ),
+                            Positioned(
+                              top: 40,
+                              child: Center(
+                                child: Text(
+                                  foods.name,
+                                  style: projectTextTheme.headline5
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          )
+        : const Text('No results found',style: TextStyle(fontSize: 24)),
+      ],
     );
   }
 }

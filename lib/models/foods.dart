@@ -74,15 +74,6 @@ var foodLists = [
     imageAsset: 'assets/images/foods/gudeg.png',
   ),
   Foods(
-    name: 'Ikan Bakar',
-    description: 'Ikan bakar adalah hidangan ikan yang dibakar atau dipanggang di atas api atau bara api.yang diciptakan oleh mario aji Hidangan ikan yang dibakar, muncul secara universal di berbagai belahan dunia.',
-    calories: '250',
-    carbo: '250',
-    protein: '75',
-    calcium: '135',
-    imageAsset: 'assets/images/foods/ikan-bakar.png',
-  ),
-  Foods(
     name: 'Kari Ayam',
     description: 'Kari ayam adalah hidangan umum di Asia Selatan, Asia Tenggara, serta di Caribbean (di mana makanan tersebut biasa disebut sebagai "ayam kari"). Kari ayam di Asia Selatan terdiri dari daging ayam yang direbus dalam bawang bombai dan saus yang berbahan dasar tomat, yang ditambahkan dengan jahe, bawang putih, cabai dan berbagai rempah-rempah, yang biasanya meliputi kunyit, jintan putih, ketumbar, kulit kayu manis, kapulaga seberang dan lain-lain. Di luar Asia Selatan, kari ayam biasanya dibuat dengan campuran rempah-rempah siap masak yakni bubuk kari.',
     calories: '250',
@@ -317,7 +308,7 @@ var foodLists = [
   //   imageAsset: 'assets/images/foods/soto-kambing.png',
   // ),
   Foods(
-    name: 'Tongseng Kambing',
+    name: 'Tongseng',
     description: 'Tongseng adalah sejenis gulai dengan bumbu yang lebih "tajam". Perbedaan yang lebih jelas adalah pada penggunaan dagingnya. Tongseng dibuat dengan menggunakan daging yang masih melekat pada tulang, terutama tulang iga dan tulang belakang.',
     calories: '250',
     carbo: '250',
@@ -333,5 +324,14 @@ var foodLists = [
     protein: '75',
     calcium: '135',
     imageAsset: 'assets/images/foods/tumpeng.png',
+  ),
+  Foods(
+    name: 'Ikan Bakar',
+    description: 'Ikan bakar adalah hidangan ikan yang dibakar atau dipanggang di atas api atau bara api.yang diciptakan oleh mario aji Hidangan ikan yang dibakar, muncul secara universal di berbagai belahan dunia.',
+    calories: '250',
+    carbo: '250',
+    protein: '75',
+    calcium: '135',
+    imageAsset: 'assets/images/foods/ikan-bakar.png',
   ),
 ];
