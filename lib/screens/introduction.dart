@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:masak_in/screens/home.dart';
+import '../common/color.dart';
+import '../screens/home.dart';
 
 class IntroductionScreen extends StatefulWidget {
   static const routeName = '/onboarding';
@@ -21,7 +22,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: bgColor,
+      backgroundColor: bgColor,
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,

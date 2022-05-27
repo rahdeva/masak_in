@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:masak_in/common/color.dart';
+import '../common/color.dart';
 import '../screens/detail.dart';
 import '../models/foods.dart';
+import 'dart:math';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/home';
@@ -10,8 +11,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgColor,
       drawer: Drawer(
-        backgroundColor: Colors.blue,
+        backgroundColor: blueColor,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(20),
@@ -62,12 +64,14 @@ class HomeScreen extends StatelessWidget {
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxWidth <= 850) {
-            return FoodGrid(gridCount: 2);
-          } else if (constraints.maxWidth <= 1250) {
-            return FoodGrid(gridCount: 4);
+          if (constraints.maxWidth <= 700) {
+            return const FoodGrid(gridCount: 2);
+          } else if (constraints.maxWidth <= 1000) {
+            return const FoodGrid(gridCount: 3);
+          } else if (constraints.maxWidth <= 1400) {
+            return const FoodGrid(gridCount: 4);
           } else {
-            return FoodGrid(gridCount: 6);
+            return const FoodGrid(gridCount: 6);
           }
         }
       ),
@@ -88,12 +92,14 @@ class FoodGrid extends StatelessWidget {
       crossAxisSpacing: 24,
       mainAxisSpacing: 75,
       children: foodLists.map((foods) {
+        final random = Random();
+        Color colors = colorList[random.nextInt(colorList.length)];
         return InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(25.0)),
           onTap: () {
-            // Navigator.push(context, MaterialPageRoute(builder: (context) {
-            //   return DetailScreen(foods: foods);
-            // }));
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return DetailScreen(foods: foods);
+            }));
           },
           child: SizedBox(
             height: 500,
@@ -101,7 +107,7 @@ class FoodGrid extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),
-                color: Colors.amber,
+                color: colors,
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   clipBehavior: Clip.none,

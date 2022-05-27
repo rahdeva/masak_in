@@ -1,30 +1,30 @@
-// import 'package:flutter/material.dart';
-// import 'package:wisata_bali_app/model/tourism_place.dart';
+import 'package:flutter/material.dart';
+import '../models/foods.dart';
 
-// class DetailScreen extends StatelessWidget {
-//   final TourismPlace place;
+class DetailScreen extends StatelessWidget {
+  final Foods foods;
   
-//   DetailScreen({required this.place});
+  const DetailScreen({Key? key, required this.foods}) : super(key: key);
   
-//   @override
-//   Widget build(BuildContext context) {
-//     return LayoutBuilder(
-//       builder: (BuildContext context, BoxConstraints constraints) {
-//         if (constraints.maxWidth > 800) {
-//           return DetailWebPage(place: place);
-//         } else {
-//           return DetailMobilePage(place: place);
-//         }
-//       },
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    // return LayoutBuilder(
+    //   builder: (BuildContext context, BoxConstraints constraints) {
+    //     if (constraints.maxWidth > 800) {
+    //       return DetailWebPage(foods: foods);
+    //     } else {
+    //       return DetailMobilePage(foods: foods);
+    //     }
+    //   },
+    // );
+    return Text("aaaa");
+  }
+}
 
 // class DetailMobilePage extends StatelessWidget{
-//   var fontOxygen = TextStyle(fontFamily: 'Oxygen');
-//   final TourismPlace place;
+//   final Foods foods;
 
-//   DetailMobilePage({required this.place});
+//   const DetailMobilePage({Key? key, required this.foods}) : super(key: key);
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@
 //             children: <Widget>[
 //               Stack(
 //                 children: <Widget>[
-//                   Hero(tag: "photo", child: Image.asset(place.imageAsset)),
+//                   Hero(tag: "photo", child: Image.asset(foods.imageAsset)),
 //                   SafeArea(
 //                     child: Padding(
 //                       padding: const EdgeInsets.all(8.0),
@@ -65,7 +65,7 @@
 //               Container(
 //                 margin: EdgeInsets.only(top: 16.0),
 //                 child: Text(
-//                   place.name,
+//                   foods.name,
 //                   textAlign: TextAlign.center,
 //                   style: TextStyle(
 //                     fontSize: 30.0,
@@ -83,21 +83,21 @@
 //                       children: <Widget> [
 //                         Icon(Icons.calendar_today),
 //                         SizedBox(height: 8.0),
-//                         Text(place.openDays, style: fontOxygen,),
+//                         Text(foods.openDays, style: fontOxygen,),
 //                       ],
 //                     ),
 //                     Column(
 //                       children: <Widget> [
 //                         Icon(Icons.access_time),
 //                         SizedBox(height: 8.0),
-//                         Text(place.openTime, style: fontOxygen),
+//                         Text(foods.openTime, style: fontOxygen),
 //                       ],
 //                     ),
 //                     Column(
 //                       children: <Widget> [
 //                         Icon(Icons.monetization_on),
 //                         SizedBox(height: 8.0),
-//                         Text(place.ticketPrice, style: fontOxygen),
+//                         Text(foods.ticketPrice, style: fontOxygen),
 //                       ],
 //                     )
 //                   ],
@@ -106,7 +106,7 @@
 //               Container(
 //                 padding: EdgeInsets.all(16.0),
 //                 child: Text(
-//                   place.description,
+//                   foods.description,
 //                   textAlign: TextAlign.center,
 //                   style: TextStyle(fontSize: 16.0, fontFamily: 'Oxygen'),
 //                 ),
@@ -116,7 +116,7 @@
 //                 child: Scrollbar(
 //                   child: ListView(
 //                     scrollDirection: Axis.horizontal,
-//                     children: place.imageUrls.map((url) {
+//                     children: foods.imageUrls.map((url) {
 //                       return Padding(
 //                         padding: const EdgeInsets.all(4.0),
 //                         child: ClipRRect(
@@ -137,16 +137,15 @@
 // }
 
 // class DetailWebPage extends StatefulWidget {
-//   final TourismPlace place;
+//   final Foods foods;
 
-//   DetailWebPage({required this.place});
+//   const DetailWebPage({Key? key, required this.foods}) : super(key: key);
 
 //   @override
 //   _DetailWebPageState createState() => _DetailWebPageState();
 // }
 
 // class _DetailWebPageState extends State<DetailWebPage> {
-//   var fontOxygen = TextStyle(fontFamily: 'Oxygen');
 //   final _scrollController = ScrollController();
 
 //   @override
@@ -180,7 +179,7 @@
 //                       child: Column(
 //                         children: [
 //                           ClipRRect(
-//                             child: Image.asset(widget.place.imageAsset),
+//                             child: Image.asset(widget.foods.imageAsset),
 //                             borderRadius: BorderRadius.circular(10),
 //                           ),
 //                           SizedBox(height: 16),
@@ -193,7 +192,7 @@
 //                               child: ListView(
 //                                 controller: _scrollController,
 //                                 scrollDirection: Axis.horizontal,
-//                                 children: widget.place.imageUrls.map((url) {
+//                                 children: widget.foods.imageUrls.map((url) {
 //                                   return Padding(
 //                                     padding: const EdgeInsets.all(4.0),
 //                                     child: ClipRRect(
@@ -218,7 +217,7 @@
 //                             children: <Widget>[
 //                               Container(
 //                                 child: Text(
-//                                   widget.place.name,
+//                                   widget.foods.name,
 //                                   textAlign: TextAlign.center,
 //                                   style: const TextStyle(
 //                                     fontSize: 30.0,
@@ -235,7 +234,7 @@
 //                                       Icon(Icons.calendar_today),
 //                                       const SizedBox(width: 8.0),
 //                                       Text(
-//                                         widget.place.openDays,
+//                                         widget.foods.openDays,
 //                                         style: fontOxygen,
 //                                       ),
 //                                     ],
@@ -248,7 +247,7 @@
 //                                   const Icon(Icons.access_time),
 //                                   const SizedBox(width: 8.0),
 //                                   Text(
-//                                     widget.place.openTime,
+//                                     widget.foods.openTime,
 //                                     style: fontOxygen,
 //                                   ),
 //                                 ],
@@ -259,7 +258,7 @@
 //                                   const Icon(Icons.monetization_on),
 //                                   const SizedBox(width: 8.0),
 //                                   Text(
-//                                     widget.place.ticketPrice,
+//                                     widget.foods.ticketPrice,
 //                                     style: fontOxygen,
 //                                   ),
 //                                 ],
@@ -267,7 +266,7 @@
 //                               Container(
 //                                 padding: const EdgeInsets.symmetric(vertical: 16.0),
 //                                 child: Text(
-//                                   widget.place.description,
+//                                   widget.foods.description,
 //                                   textAlign: TextAlign.justify,
 //                                   style: const TextStyle(
 //                                     fontSize: 16.0,

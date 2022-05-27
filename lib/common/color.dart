@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-const Color bgColor =  Color(0xFFF2F2F2);
-const Color orangeColor =  Color(0xFFE55834);
-const Color yellowColor =  Color(0xFFF5BB01);
+const Color logoColor =  Color(0xFFA1F1CE);
+const Color bgColor =  Color(0xFFEDF8F2);
+const Color orangeColor =  Color(0xFFF04E23);
+const Color blueColor =  Color(0xFF152A3D);
 
 final purple = Colors.purple.value.toRadixString(16);
 final red =Colors.red.value.toRadixString(16);
