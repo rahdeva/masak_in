@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masak_in/common/color.dart';
 import '../screens/detail.dart';
 import '../models/foods.dart';
 
@@ -59,80 +60,78 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      // body: LayoutBuilder(
-      //   builder: (BuildContext context, BoxConstraints constraints) {
-      //     if (constraints.maxWidth <= 850) {
-      //       return FoodGrid(gridCount: 2);
-      //     } else if (constraints.maxWidth <= 1250) {
-      //       return FoodGrid(gridCount: 4);
-      //     } else {
-      //       return FoodGrid(gridCount: 6);
-      //     }
-      //   }
-      // ),
-      body: Center(
-        child: Image.asset("assets/images/foods/bakso.png", width: 150, height: 150,),
-      )
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth <= 850) {
+            return FoodGrid(gridCount: 2);
+          } else if (constraints.maxWidth <= 1250) {
+            return FoodGrid(gridCount: 4);
+          } else {
+            return FoodGrid(gridCount: 6);
+          }
+        }
+      ),
     );
   }
 }
 
-// class FoodGrid extends StatelessWidget {
-//   final int gridCount;
+class FoodGrid extends StatelessWidget {
+  final int gridCount;
 
-//   const FoodGrid({Key? key, required this.gridCount}) : super(key: key);
+  const FoodGrid({Key? key, required this.gridCount}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scrollbar(
-//       isAlwaysShown: true,
-//       child: Padding(
-//         padding: const EdgeInsets.all(24.0),
-//         child: GridView.count(
-//           crossAxisCount: gridCount,
-//           crossAxisSpacing: 16,
-//           mainAxisSpacing: 16,
-//           children: foodLists.map((foods) {
-//             return InkWell(
-//               onTap: () {
-//                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                   return DetailScreen(foods: foods);
-//                 }));
-//               },
-//               child: Card(
-//                 child: Column(
-//                   crossAxisAlignment: CrossAxisAlignment.stretch,
-//                   children: [
-//                     Expanded(
-//                       child: Image.asset(
-//                         foods.imageAsset,
-//                         fit: BoxFit.cover,
-//                       ),
-//                     ),
-//                     SizedBox(height: 8),
-//                     Padding(
-//                       padding: const EdgeInsets.only(left: 8.0),
-//                       child: Text(
-//                         foods.name,
-//                         style: TextStyle(
-//                           fontSize: 16.0,
-//                           fontWeight: FontWeight.bold,
-//                         ),
-//                       ),
-//                     ),
-//                     Padding(
-//                       padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-//                       child: Text(
-//                         foods.location,
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             );
-//           }).toList(),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      padding: const EdgeInsets.all(24.0),
+      crossAxisCount: gridCount,
+      crossAxisSpacing: 24,
+      mainAxisSpacing: 75,
+      children: foodLists.map((foods) {
+        return InkWell(
+          borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+          onTap: () {
+            // Navigator.push(context, MaterialPageRoute(builder: (context) {
+            //   return DetailScreen(foods: foods);
+            // }));
+          },
+          child: SizedBox(
+            height: 500,
+            child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                color: Colors.amber,
+                child: Stack(
+                  alignment: AlignmentDirectional.center,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Positioned(
+                      top: 70,
+                      child: Image.asset(
+                        foods.imageAsset,
+                        height: 200,
+                        width: 200,
+                      ),
+                    ),
+                    Positioned(
+                      top: 40,
+                      child: Center(
+                        child: Text(
+                          foods.name,
+                          style: const TextStyle(
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            ),
+          ),
+        );
+      }).toList(),
+    );
+  }
+}
