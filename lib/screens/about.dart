@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../common/color.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({ Key? key }) : super(key: key);
@@ -6,7 +7,7 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: bgColor,
+      backgroundColor: bgColor,
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,

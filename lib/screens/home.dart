@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../common/font.dart';
+import '../screens/about.dart';
+import '../screens/favourites.dart';
 import '../common/color.dart';
 import '../screens/detail.dart';
 import '../models/foods.dart';
@@ -20,7 +23,7 @@ class HomeScreen extends StatelessWidget {
             bottomRight: Radius.circular(20)
           ),
         ),
-        child: Column(
+        child: ListView(
           children: [
             Container(
               margin: const EdgeInsets.symmetric(vertical: 24.0),
@@ -29,24 +32,38 @@ class HomeScreen extends StatelessWidget {
               child: Image.asset("assets/images/others/logoImages.png")
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 16.0),
+              padding: EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
               child: ListTile(
-                leading: Icon(Icons.message),
-                title: Text('Messages'),
+                leading: Icon(Icons.home, color: logoColor),
+                title: Text('Home', style: TextStyle(fontSize: 20.0, color: logoColor, fontWeight: FontWeight.bold)),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 16.0),
-              child: ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('Profile', style: TextStyle(fontSize: 16.0),),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const FavouritesScreen();
+                  }));
+                },
+                child: const ListTile(
+                  leading: Icon(Icons.favorite, color: bgColor,), 
+                  title: Text('Favourites', style: TextStyle(fontSize: 20.0, color: bgColor)),
+                ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 16.0),
-              child: ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const AboutScreen();
+                  }));
+                },
+                child: const ListTile(
+                  leading: Icon(Icons.info, color: bgColor,),
+                  title: Text('About', style: TextStyle(fontSize: 20.0, color: bgColor)),
+                ),
               ),
             ),
           ],
@@ -61,6 +78,7 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: const IconThemeData(color: blueColor),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -125,10 +143,7 @@ class FoodGrid extends StatelessWidget {
                       child: Center(
                         child: Text(
                           foods.name,
-                          style: const TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: projectTextTheme.headline5
                         ),
                       ),
                     ),
