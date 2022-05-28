@@ -170,7 +170,7 @@ class _FoodGridState extends State<FoodGrid> {
                   borderRadius: const BorderRadius.all(Radius.circular(25.0)),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return DetailScreen(foods: foods);
+                      return DetailScreen(foods: foods, color: colors);
                     }));
                   },
                   child: SizedBox(
@@ -185,7 +185,7 @@ class _FoodGridState extends State<FoodGrid> {
                           clipBehavior: Clip.none,
                           children: [
                             Positioned(
-                              top: 65,
+                              top: 60,
                               child: Image.asset(
                                 foods.imageAsset,
                                 height: 200,

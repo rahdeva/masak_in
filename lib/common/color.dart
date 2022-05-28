@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const Color logoColor =  Color(0xFFA1F1CE);
-const Color bgColor =  Color(0xFFEDF8F2);
+const Color bgColor =  Color.fromRGBO(205, 241, 221, 1);
 const Color orangeColor =  Color(0xFFF04E23);
 const Color blueColor =  Color(0xFF152A3D);
 
