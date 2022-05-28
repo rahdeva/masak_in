@@ -8,8 +8,9 @@ import '../models/foods.dart';
 class DetailScreen extends StatelessWidget {
   final Foods foods;
   final Color color;
+  final String id;
   
-  const DetailScreen({Key? key, required this.foods, required this.color}) : super(key: key);
+  const DetailScreen({Key? key, required this.foods, required this.color, required this.id}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -71,30 +72,33 @@ class DetailMobilePage extends StatelessWidget{
                 ),
                 SizedBox(
                   height: 280,
-                  child: Stack(
-                    alignment: AlignmentDirectional.center,
-                    clipBehavior: Clip.none,
-                    children: [
-                      Positioned(
-                        top: 0,
-                        child: Container(
-                          height: 250,
-                          width: 300,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            color: color,
-                          ),
-                        )
-                      ),
-                      Positioned(
-                        top: 55,
-                        child: Image.asset(
-                          foods.imageAsset,
-                          height: 250,
-                          width: 250,
+                  child: Hero(
+                    tag: foods.id,
+                    child: Stack(
+                      alignment: AlignmentDirectional.center,
+                      clipBehavior: Clip.none,
+                      children: [
+                        Positioned(
+                          top: 0,
+                          child: Container(
+                            height: 250,
+                            width: 300,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: color,
+                            ),
+                          )
                         ),
-                      ),
-                    ],
+                        Positioned(
+                          top: 55,
+                          child: Image.asset(
+                            foods.imageAsset,
+                            height: 250,
+                            width: 250,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Container(

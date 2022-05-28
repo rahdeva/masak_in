@@ -170,7 +170,7 @@ class _FoodGridState extends State<FoodGrid> {
                   borderRadius: const BorderRadius.all(Radius.circular(25.0)),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return DetailScreen(foods: foods, color: colors);
+                      return DetailScreen(foods: foods, color: colors, id: foods.id,);
                     }));
                   },
                   child: SizedBox(
@@ -180,28 +180,31 @@ class _FoodGridState extends State<FoodGrid> {
                           borderRadius: BorderRadius.circular(25),
                         ),
                         color: colors,
-                        child: Stack(
-                          alignment: AlignmentDirectional.center,
-                          clipBehavior: Clip.none,
-                          children: [
-                            Positioned(
-                              top: 60,
-                              child: Image.asset(
-                                foods.imageAsset,
-                                height: 200,
-                                width: 200,
-                              ),
-                            ),
-                            Positioned(
-                              top: 40,
-                              child: Center(
-                                child: Text(
-                                  foods.name,
-                                  style: projectTextTheme.headline5
+                        child: Hero(
+                          tag: foods.id,
+                          child: Stack(
+                            alignment: AlignmentDirectional.center,
+                            clipBehavior: Clip.none,
+                            children: [
+                              Positioned(
+                                top: 60,
+                                child: Image.asset(
+                                  foods.imageAsset,
+                                  height: 200,
+                                  width: 200,
                                 ),
                               ),
-                            ),
-                          ],
+                              Positioned(
+                                top: 40,
+                                child: Center(
+                                  child: Text(
+                                    foods.name,
+                                    style: projectTextTheme.headline5
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                     ),
                   ),
