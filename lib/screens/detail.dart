@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'web-view-yt.dart';
 import '../common/color.dart';
 import '../models/foods.dart';
 
@@ -14,8 +15,8 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth > 800) {
-          return DetailWebPage(foods: foods);
+        if (constraints.maxWidth > 1000) {
+          return DetailWebPage(foods: foods, color: color);
         } else {
           return DetailMobilePage(foods: foods, color: color);
         }
@@ -37,7 +38,7 @@ class DetailMobilePage extends StatelessWidget{
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            height: 900,
+            height: 800,
             decoration: BoxDecoration(
               border: Border.all(width: 1.0, color: Colors.white),
               color: bgColor,
@@ -118,8 +119,8 @@ class DetailMobilePage extends StatelessWidget{
                   margin: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
                   child: Text(
                     "Nutritions",
-                    style: TextStyle(
-                      fontSize: 18.0,
+                    style: GoogleFonts.inter(
+                      fontSize: 22.0,
                       fontWeight: FontWeight.w600,
                     ),
                   )
@@ -137,13 +138,32 @@ class DetailMobilePage extends StatelessWidget{
                     NutritionsItems(num: foods.protein, title: "Protein", unit: "Gram"),
                     NutritionsItems(num: foods.calcium, title: "Calcium", unit: "Gram"),
                   ],
-                )
-                
+                ),
               ],
             ),
           ),
         )
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return WebViewScreen(query: foods.name);
+          }));
+        },
+        label: Container(
+          margin: const EdgeInsets.all(24.0),
+          child: Text(
+            "Watch Video",
+            style: GoogleFonts.inter(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
+        icon: const Icon(Icons.play_circle, size: 24),
+        backgroundColor: blueColor,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
@@ -215,23 +235,18 @@ class NutritionsItems extends StatelessWidget {
   }
 }
 
-class DetailWebPage extends StatefulWidget {
+class DetailWebPage extends StatelessWidget {
   final Foods foods;
+  final Color color;
 
-  const DetailWebPage({Key? key, required this.foods}) : super(key: key);
-
-  @override
-  _DetailWebPageState createState() => _DetailWebPageState();
-}
-
-class _DetailWebPageState extends State<DetailWebPage> {
-  final _scrollController = ScrollController();
+  const DetailWebPage({Key? key, required this.foods, required this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      // appBar: kIsWeb ? null : AppBar(),
+      backgroundColor: bgColor,
+      appBar: AppBar( backgroundColor: blueColor),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: 16,
@@ -239,69 +254,113 @@ class _DetailWebPageState extends State<DetailWebPage> {
         ),
         child: Center(
           child: Container(
+            margin: screenWidth <= 1200 ? EdgeInsets.only(top: 10) : EdgeInsets.only(top: 100),
             width: screenWidth <= 1200 ? 800 : 1200,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  'Wisata Bandung',
-                  style: TextStyle(
-                    fontFamily: 'Staatliches',
-                    fontSize: 32,
-                  ),
-                ),
-                SizedBox(height: 32),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            child: Image.asset(widget.foods.imageAsset),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          SizedBox(height: 16),
-                          Scrollbar(
-                            isAlwaysShown: true,
-                            controller: _scrollController,
-                            child: Container(
-                              height: 150,
-                              padding: const EdgeInsets.only(bottom: 16),
+                      child: SizedBox(
+                        width: 400,
+                        height: 400,
+                        child: Stack(
+                          alignment: AlignmentDirectional.center,
+                          clipBehavior: Clip.none,
+                          children: [
+                            Positioned(
+                              top: 0,
+                              child: Container(
+                                height: screenWidth <= 1200 ? 300 : 400,
+                                width: screenWidth <= 1200 ? 350 : 500,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  color: color,
+                                ),
+                              )
                             ),
-                          ),
-                        ],
+                            Positioned(
+                              top: 80,
+                              child: Image.asset(
+                                foods.imageAsset,
+                                height: screenWidth <= 1200 ? 300 : 400,
+                                width: screenWidth <= 1200 ? 300 : 1200,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(width: 32),
+                    const SizedBox(width: 32),
                     Expanded(
                       child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
                         child: Container(
-                          padding: const EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(24),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
                             children: <Widget>[
-                              Container(
-                                child: Text(
-                                  widget.foods.name,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 30.0,
-                                    fontFamily: 'Staatliches',
-                                  ),
+                              Text(
+                                foods.name,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.inter(
+                                  fontSize: 30.0,
+                                  fontWeight: FontWeight.bold
                                 ),
                               ),
                               Container(
                                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                                 child: Text(
-                                  widget.foods.description,
+                                  foods.description,
                                   textAlign: TextAlign.justify,
-                                  style: const TextStyle(
+                                  style: GoogleFonts.inter(
                                     fontSize: 16.0,
-                                    fontFamily: 'Oxygen',
                                   ),
                                 ),
                               ),
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+                                child: Text(
+                                  "Nutritions",
+                                  textAlign: TextAlign.left,
+                                  style: GoogleFonts.inter(
+                                    fontSize: 22.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )
+                              ),
+                              screenWidth <= 1200 
+                              ? Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    NutritionsItems(num: foods.calories, title: "Calories", unit: "Kcal"),
+                                    NutritionsItems(num: foods.carbo, title: "Carbo", unit: "Gram"),
+                                    NutritionsItems(num: foods.protein, title: "Protein", unit: "Gram"),
+                                    NutritionsItems(num: foods.calcium, title: "Calcium", unit: "Gram"),
+                                  ],
+                                ) 
+                              : Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        NutritionsItems(num: foods.calories, title: "Calories", unit: "Kcal"),
+                                        NutritionsItems(num: foods.carbo, title: "Carbo", unit: "Gram"),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        NutritionsItems(num: foods.protein, title: "Protein", unit: "Gram"),
+                                        NutritionsItems(num: foods.calcium, title: "Calcium", unit: "Gram"),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              
                             ],
                           ),
                         ),
@@ -314,6 +373,26 @@ class _DetailWebPageState extends State<DetailWebPage> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return WebViewScreen(query: foods.name);
+          }));
+        },
+        label: Container(
+          margin: const EdgeInsets.all(50.0),
+          child: Text(
+            "Watch Video",
+            style: GoogleFonts.inter(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
+        icon: const Icon(Icons.play_circle, size: 24),
+        backgroundColor: blueColor,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

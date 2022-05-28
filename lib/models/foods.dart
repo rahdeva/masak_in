@@ -75,7 +75,7 @@ var foodLists = [
   ),
   Foods(
     name: 'Kari Ayam',
-    description: 'Kari ayam adalah hidangan umum di Asia Selatan, Asia Tenggara, serta di Caribbean (di mana makanan tersebut biasa disebut sebagai "ayam kari"). Kari ayam di Asia Selatan terdiri dari daging ayam yang direbus dalam bawang bombai dan saus yang berbahan dasar tomat, yang ditambahkan dengan jahe, bawang putih, cabai dan berbagai rempah-rempah, yang biasanya meliputi kunyit, jintan putih, ketumbar, kulit kayu manis, kapulaga seberang dan lain-lain. Di luar Asia Selatan, kari ayam biasanya dibuat dengan campuran rempah-rempah siap masak yakni bubuk kari.',
+    description: 'Kari ayam adalah hidangan umum di Asia Selatan, Asia Tenggara, serta di Caribbean (di mana makanan tersebut biasa disebut sebagai "ayam kari").  Di luar Asia Selatan, kari ayam biasanya dibuat dengan campuran rempah-rempah siap masak yakni bubuk kari.',
     calories: '250',
     carbo: '250',
     protein: '115',
