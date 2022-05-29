@@ -4,6 +4,7 @@ import 'package:masak_in/screens/home.dart';
 import '../common/color.dart';
 
 class AboutScreen extends StatelessWidget {
+  static const routeName = '/about';
   const AboutScreen({ Key? key }) : super(key: key);
 
   @override

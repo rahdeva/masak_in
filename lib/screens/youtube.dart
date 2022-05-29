@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-class WebViewScreen extends StatelessWidget {
+class YoutubeScreen extends StatelessWidget {
   final String url = "https://www.youtube.com/results?search_query=";
   final String query;
 
-  const WebViewScreen({Key? key, required this.query}) : super(key: key);
+  const YoutubeScreen({Key? key, required this.query}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +13,9 @@ class WebViewScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter WebView'),
       ),
-      body: WebView(
-        initialUrl: url + query,
-      ),
+      // body: WebView(
+      //   initialUrl: url + query,
+      // ),
     );
   }
 }

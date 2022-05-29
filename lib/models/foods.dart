@@ -7,6 +7,7 @@ class Foods {
   String protein;
   String calcium;
   String imageAsset;
+  String queryYT;
   
   Foods({
     required this.id,
@@ -17,6 +18,7 @@ class Foods {
     required this.protein,
     required this.calcium,
     required this.imageAsset,
+    required this.queryYT
   });
 }
 
@@ -30,6 +32,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/ayam-geprek.png',
+    queryYT: "Y-mOK--T1wc",
   ),
   Foods(
     id: "FOODS002",
@@ -40,6 +43,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/bakso.png',
+    queryYT: "fdWFedTsIQ8",
   ),
   // Foods(
   //   name: 'Bubur Ayam',
@@ -59,6 +63,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/coto-makasar.png',
+    queryYT: "NPOp2nuJu8Y",
   ),
   Foods(
     id: "FOODS004",
@@ -69,6 +74,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/gado-gado.png',
+    queryYT: "Jm1ThTdVgwo",
   ),
   Foods(
     id: "FOODS004",
@@ -79,6 +85,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/gudeg.png',
+    queryYT: "3_4mPhU_LEk",
   ),
   Foods(
     id: "FOODS005",
@@ -89,6 +96,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/kari-ayam.png',
+    queryYT: "fkCfokf2-JA",
   ),
   Foods(
     id: "FOODS006",
@@ -99,6 +107,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/ketupat.png',
+    queryYT: "kC45MOgJ5Qg",
   ),
   Foods(
     id: "FOODS007",
@@ -109,6 +118,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/lalapan-ayam.png',
+    queryYT: "GCP_7vE7q7k",
   ),
   // Foods(
   //   name: 'Martabak Telor',
@@ -128,6 +138,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/mi-goreng.png',
+    queryYT: "E3VflxR5_hI",
   ),
   Foods(
     id: "FOODS010",
@@ -138,6 +149,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/nasi-campur.png',
+    queryYT: "UjD33o1Qogs",
   ),
   Foods(
     id: "FOODS011",
@@ -148,6 +160,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/nasi-goreng.png',
+    queryYT: "Js9FXCkn798",
   ),
   // Foods(
   //   name: 'Nasi Kuning',
@@ -167,6 +180,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/nasi-uduk.png',
+    queryYT: "esPA5B5nVH8",
   ),
   Foods(
     id: "FOODS013",
@@ -177,6 +191,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/opor-ayam.png',
+    queryYT: "uZvWZzy8LyY",
   ),
   // Foods(
   //   name: 'Pempek',
@@ -205,6 +220,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/rawon.png',
+    queryYT: "R15BpQrzQ0I",
   ),
   Foods(
     id: "FOODS015",
@@ -215,6 +231,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/rendang.png',
+    queryYT: "GNfRXKsvG04",
   ),
   Foods(
     id: "FOODS016",
@@ -225,6 +242,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/risoles.png',
+    queryYT: "UHH3ucvAqGA",
   ),
   Foods(
     id: "FOODS017",
@@ -235,6 +253,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/sate-ayam.png',
+    queryYT: "tUjTK_DN6-o",
   ),
   Foods(
     id: "FOODS018",
@@ -245,6 +264,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/sate-kambing.png',
+    queryYT: "_xneMy5syHI",
   ),
   Foods(
     id: "FOODS019",
@@ -255,6 +275,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/sate-klathak.png',
+    queryYT: "xwyjyU5pts0",
   ),
   // Foods(
   //   name: 'Sayur Hijau',
@@ -283,6 +304,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/sop-konro.png',
+    queryYT: "sYI0XOgoXR4",
   ),
   Foods(
     id: "FOODS021",
@@ -293,6 +315,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/soto-ayam.png',
+    queryYT: "6jRoh6IW16Q",
   ),
   // Foods(
   //   name: 'Soto Babi',
@@ -312,6 +335,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/soto-bening.png',
+    queryYT: "pJ-PMDJ0x38",
   ),
   Foods(
     id: "FOODS023",
@@ -322,6 +346,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/soto-betawi.png',
+    queryYT: "p2beC43hF1Q",
   ),
   // Foods(
   //   name: 'Soto Kambing',
@@ -341,6 +366,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/tongseng-kambing.png',
+    queryYT: "3_YVKVYeCCY",
   ),
   Foods(
     id: "FOODS025",
@@ -351,6 +377,7 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/tumpeng.png',
+    queryYT: "Ls3wWW9uC6o",
   ),
   Foods(
     id: "FOODS026",
@@ -361,5 +388,6 @@ var foodLists = [
     protein: '115',
     calcium: '135',
     imageAsset: 'assets/images/foods/ikan-bakar.png',
+    queryYT: "ytg0nSt6k4k",
   ),
 ];

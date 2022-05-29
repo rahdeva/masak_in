@@ -1,11 +1,12 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'web-view-yt.dart';
+import 'youtube.dart';
 import '../common/color.dart';
 import '../models/foods.dart';
 
 class DetailScreen extends StatelessWidget {
+  static const routeName = '/detail';
   final Foods foods;
   final Color color;
   final String id;
@@ -151,7 +152,7 @@ class DetailMobilePage extends StatelessWidget{
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return WebViewScreen(query: foods.name);
+            return YoutubeScreen(query: foods.name);
           }));
         },
         label: Container(
@@ -270,30 +271,33 @@ class DetailWebPage extends StatelessWidget {
                       child: SizedBox(
                         width: 400,
                         height: 400,
-                        child: Stack(
-                          alignment: AlignmentDirectional.center,
-                          clipBehavior: Clip.none,
-                          children: [
-                            Positioned(
-                              top: 0,
-                              child: Container(
-                                height: screenWidth <= 1200 ? 300 : 400,
-                                width: screenWidth <= 1200 ? 350 : 500,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  color: color,
-                                ),
-                              )
-                            ),
-                            Positioned(
-                              top: 80,
-                              child: Image.asset(
-                                foods.imageAsset,
-                                height: screenWidth <= 1200 ? 300 : 400,
-                                width: screenWidth <= 1200 ? 300 : 1200,
+                        child: Hero(
+                          tag: foods.id,
+                          child: Stack(
+                            alignment: AlignmentDirectional.center,
+                            clipBehavior: Clip.none,
+                            children: [
+                              Positioned(
+                                top: 0,
+                                child: Container(
+                                  height: screenWidth <= 1200 ? 300 : 400,
+                                  width: screenWidth <= 1200 ? 350 : 500,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    color: color,
+                                  ),
+                                )
                               ),
-                            ),
-                          ],
+                              Positioned(
+                                top: 80,
+                                child: Image.asset(
+                                  foods.imageAsset,
+                                  height: screenWidth <= 1200 ? 300 : 400,
+                                  width: screenWidth <= 1200 ? 300 : 1200,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -380,7 +384,7 @@ class DetailWebPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return WebViewScreen(query: foods.name);
+            return YoutubeScreen(query: foods.name);
           }));
         },
         label: Container(
