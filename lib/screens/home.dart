@@ -140,6 +140,7 @@ class _FoodGridState extends State<FoodGrid> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Container(
@@ -190,8 +191,8 @@ class _FoodGridState extends State<FoodGrid> {
                                 top: 60,
                                 child: Image.asset(
                                   foods.imageAsset,
-                                  height: 200,
-                                  width: 200,
+                                  height: screenWidth <= 500 ? 150 : 200,
+                                  width: screenWidth <= 500 ? 150 : 200,
                                 ),
                               ),
                               Positioned(
@@ -212,7 +213,14 @@ class _FoodGridState extends State<FoodGrid> {
               }).toList(),
             ),
           )
-        : const Text('No results found',style: TextStyle(fontSize: 24)),
+        : Center(
+          child: Column(
+            children: const [
+              Icon(Icons.search_off, size: 100,),
+              Text('No results found',style: TextStyle(fontSize: 24)),
+            ],
+          ),
+        ),
       ],
     );
   }

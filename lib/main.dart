@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:masak_in/models/foods.dart';
-import 'package:masak_in/screens/about.dart';
-import 'package:masak_in/screens/favourites.dart';
+import '../models/foods.dart';
+import '../screens/about.dart';
+import '../screens/favourites.dart';
+import '../screens/youtube.dart';
 import '../screens/introduction.dart';
 import '../screens/home.dart';
 import '../screens/splash.dart';
@@ -33,7 +34,10 @@ class MyApp extends StatelessWidget {
           foods: ModalRoute.of(context)?.settings.arguments as Foods,
           color: ModalRoute.of(context)?.settings.arguments as Color,
         ),
-        // YoutubeScreen.routeName: (context) => const YoutubeScreen(),
+        YoutubeScreen.routeName: (context) => YoutubeScreen(
+          query: ModalRoute.of(context)?.settings.arguments as String,
+          title: ModalRoute.of(context)?.settings.arguments as String,
+        ),
       },
     );
   }

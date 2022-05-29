@@ -70,7 +70,21 @@ class FavouritesScreen extends StatelessWidget {
         elevation: 0,
         iconTheme: const IconThemeData(color: blueColor),
       ),
-      body: Text("mamangk"),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(Icons.developer_mode, size: 200,),
+            SizedBox(height: 40),
+            Text(
+              "Sorry, This Features is on Development",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 32),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
