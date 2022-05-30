@@ -2,22 +2,10 @@ import 'package:flutter/material.dart';
 import '../common/color.dart';
 import '../screens/home.dart';
 
-class IntroductionScreen extends StatefulWidget {
+class IntroductionScreen extends StatelessWidget {
   static const routeName = '/onboarding';
-  const IntroductionScreen({ Key? key }) : super(key: key);
 
-  @override
-  State<IntroductionScreen> createState() => _IntroductionScreenState();
-}
-
-class _IntroductionScreenState extends State<IntroductionScreen> {
-  final controller = PageController();
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+  const IntroductionScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
