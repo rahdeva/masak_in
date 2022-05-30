@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         child: ListView(
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             Container(
               margin: const EdgeInsets.symmetric(vertical: 24.0),
