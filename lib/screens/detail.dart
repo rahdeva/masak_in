@@ -12,8 +12,7 @@ class DetailScreen extends StatelessWidget {
   final String id;
 
   const DetailScreen(
-      {Key? key, required this.foods, required this.color, required this.id})
-      : super(key: key);
+      {super.key, required this.foods, required this.color, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +32,7 @@ class DetailMobilePage extends StatelessWidget {
   final Foods foods;
   final Color color;
 
-  const DetailMobilePage({Key? key, required this.foods, required this.color})
-      : super(key: key);
+  const DetailMobilePage({super.key, required this.foods, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -207,11 +205,11 @@ class NutritionsItems extends StatelessWidget {
   final String unit;
 
   const NutritionsItems({
-    Key? key,
+    super.key,
     required this.num,
     required this.title,
     required this.unit,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -273,8 +271,7 @@ class DetailWebPage extends StatelessWidget {
   final Foods foods;
   final Color color;
 
-  const DetailWebPage({Key? key, required this.foods, required this.color})
-      : super(key: key);
+  const DetailWebPage({super.key, required this.foods, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -461,9 +458,10 @@ class DetailWebPage extends StatelessWidget {
 }
 
 class FavoriteButton extends StatefulWidget {
-  const FavoriteButton({Key? key}) : super(key: key);
+  const FavoriteButton({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _FavoriteButtonState createState() => _FavoriteButtonState();
 }
 

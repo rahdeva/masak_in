@@ -5,10 +5,10 @@ import '../common/color.dart';
 
 class SplashScreen extends StatefulWidget {
   static const routeName = '/';
+  const SplashScreen({super.key});
 
-  const SplashScreen({Key? key}) : super(key: key);
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {

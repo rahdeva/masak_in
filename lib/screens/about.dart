@@ -5,7 +5,7 @@ import '../common/color.dart';
 
 class AboutScreen extends StatelessWidget {
   static const routeName = '/about';
-  const AboutScreen({ Key? key }) : super(key: key);
+  const AboutScreen({ super.key });
 
   @override
   Widget build(BuildContext context) {

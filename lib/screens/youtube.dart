@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../common/color.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-
 class YoutubeScreen extends StatefulWidget {
   static const routeName = '/youtube';
   final String query;
   final String title;
-  const YoutubeScreen({Key? key, required this.query, required this.title}) : super(key: key);
+  const YoutubeScreen({super.key, required this.query, required this.title});
 
   @override
-  _YoutubeScreenState createState() => _YoutubeScreenState();
+  State<YoutubeScreen> createState() => _YoutubeScreenState();
 }
 
 class _YoutubeScreenState extends State<YoutubeScreen> {

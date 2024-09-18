@@ -5,7 +5,7 @@ import '../screens/home.dart';
 
 class FavouritesScreen extends StatelessWidget {
   static const routeName = '/favourites';
-  const FavouritesScreen({ Key? key }) : super(key: key);
+  const FavouritesScreen({ super.key });
 
   @override
   Widget build(BuildContext context) {

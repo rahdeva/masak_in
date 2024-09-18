@@ -5,7 +5,7 @@ import '../screens/home.dart';
 class IntroductionScreen extends StatelessWidget {
   static const routeName = '/onboarding';
 
-  const IntroductionScreen({Key? key}) : super(key: key);
+  const IntroductionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
