@@ -31,9 +31,13 @@ class AboutScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                    return const HomeScreen();
-                  }));
+                  Navigator.pushReplacement(
+                    context, MaterialPageRoute(
+                      builder: (context) {
+                        return const HomeScreen();
+                      }
+                    )
+                  );
                 },
                 child: const ListTile(
                   leading: Icon(Icons.home, color: bgColor),
@@ -45,13 +49,23 @@ class AboutScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                    return const FavouritesScreen();
-                  }));
+                  Navigator.pushReplacement(
+                    context, MaterialPageRoute(
+                      builder: (context) {
+                        return const FavouritesScreen();
+                      }
+                    )
+                  );
                 },
                 child: const ListTile(
                   leading: Icon(Icons.favorite, color: bgColor,), 
-                  title: Text('Favourites', style: TextStyle(fontSize: 20.0, color: bgColor)),
+                  title: Text(
+                    'Favourites', 
+                    style: TextStyle(
+                      fontSize: 20.0, 
+                      color: bgColor
+                    )
+                  ),
                 ),
               ),
             ),
@@ -59,7 +73,14 @@ class AboutScreen extends StatelessWidget {
               padding: EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
               child: ListTile(
                 leading: Icon(Icons.info, color: logoColor,),
-                title: Text('About', style: TextStyle(fontSize: 20.0, color: logoColor, fontWeight: FontWeight.w600)),
+                title: Text(
+                  'About', 
+                  style: TextStyle(
+                    fontSize: 20.0, 
+                    color: logoColor, 
+                    fontWeight: FontWeight.w600
+                  )
+                ),
               ),
             ),
           ],

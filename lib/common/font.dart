@@ -3,30 +3,30 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:masak_in/common/color.dart';
 
 var projectTextTheme = TextTheme(
-  headline1: GoogleFonts.inter(
+  displayLarge: GoogleFonts.inter(
       fontSize: 93, fontWeight: FontWeight.w300, letterSpacing: -1.5),
-  headline2: GoogleFonts.inter(
+  displayMedium: GoogleFonts.inter(
       fontSize: 58, fontWeight: FontWeight.w300, letterSpacing: -0.5),
-  headline3: GoogleFonts.inter(
+  displaySmall: GoogleFonts.inter(
       fontSize: 47, fontWeight: FontWeight.w400),
-  headline4: GoogleFonts.inter(
+  headlineMedium: GoogleFonts.inter(
       fontSize: 33, fontWeight: FontWeight.w400, letterSpacing: 0.25),
-  headline5: GoogleFonts.inter(
+  headlineSmall: GoogleFonts.inter(
       fontSize: 23, fontWeight: FontWeight.bold, color: bgColor),
-  headline6: GoogleFonts.inter(
+  titleLarge: GoogleFonts.inter(
       fontSize: 19, fontWeight: FontWeight.w500, letterSpacing: 0.15),
-  subtitle1: GoogleFonts.inter(
+  titleMedium: GoogleFonts.inter(
       fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0.15),
-  subtitle2: GoogleFonts.inter(
+  titleSmall: GoogleFonts.inter(
       fontSize: 14, fontWeight: FontWeight.w500, letterSpacing: 0.1),
-  bodyText1: GoogleFonts.inter(
+  bodyLarge: GoogleFonts.inter(
       fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0.5),
-  bodyText2: GoogleFonts.inter(
+  bodyMedium: GoogleFonts.inter(
       fontSize: 14, fontWeight: FontWeight.w400, letterSpacing: 0.25),
-  button: GoogleFonts.inter(
+  labelLarge: GoogleFonts.inter(
       fontSize: 14, fontWeight: FontWeight.w500, letterSpacing: 1.25),
-  caption: GoogleFonts.inter(
+  bodySmall: GoogleFonts.inter(
       fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 0.4),
-  overline: GoogleFonts.inter(
+  labelSmall: GoogleFonts.inter(
       fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
 );

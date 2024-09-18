@@ -201,7 +201,7 @@ class _FoodGridState extends State<FoodGrid> {
                                 child: Center(
                                   child: Text(
                                     foods.name,
-                                    style: projectTextTheme.headline5
+                                    style: projectTextTheme.headlineSmall
                                   ),
                                 ),
                               ),
@@ -214,9 +214,9 @@ class _FoodGridState extends State<FoodGrid> {
               }).toList(),
             ),
           )
-        : Center(
+        : const Center(
           child: Column(
-            children: const [
+            children: [
               Icon(Icons.search_off, size: 100,),
               Text('No results found',style: TextStyle(fontSize: 24)),
             ],

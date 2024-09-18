@@ -70,11 +70,11 @@ class FavouritesScreen extends StatelessWidget {
         elevation: 0,
         iconTheme: const IconThemeData(color: blueColor),
       ),
-      body: SizedBox(
+      body: const SizedBox(
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Icon(Icons.developer_mode, size: 200,),
             SizedBox(height: 40),
             Text(

@@ -26,8 +26,8 @@ class IntroductionScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.orange,
-                      onPrimary: Colors.white,
+                      foregroundColor: Colors.white, 
+                      backgroundColor: Colors.orange,
                       shape: const StadiumBorder()),
                   onPressed: () => Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
