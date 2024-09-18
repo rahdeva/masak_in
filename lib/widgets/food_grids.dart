@@ -109,7 +109,11 @@ class _FoodGridState extends State<FoodGrid> {
                                 child: Center(
                                   child: Text(
                                     foods.name,
-                                    style: projectTextTheme.headlineSmall
+                                    textAlign: TextAlign.center,
+                                    style: projectTextTheme.titleLarge!.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: bgColor
+                                    )
                                   ),
                                 ),
                               ),
